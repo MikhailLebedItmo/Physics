@@ -3,8 +3,8 @@ import math
 
 def cartesian_to_spherical(x, y, z, precision):
     r = math.sqrt(x ** 2 + y ** 2 + z ** 2)
-    theta = math.atan2(y, x)
-    phi = math.acos(z / r) if r != 0 else 0
+    phi = math.atan2(y, x)
+    theta = math.acos(z / r) if r != 0 else 0
     if precision == 0:
         return int(round(r, 0)), int(round(math.degrees(theta), 0)), int(round(math.degrees(phi), 0))
 
