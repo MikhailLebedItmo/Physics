@@ -5,13 +5,13 @@ import argparse
 g = 9.81
 
 
-def parse_arguments():
-    parser = argparse.ArgumentParser(description='Симуляция движения тела, брошенного под углом.')
-    parser.add_argument('height', type=float, help='Высота, с которой брошено тело (м)')
-    parser.add_argument('speed', type=float, help='Начальная скорость (м/с)')
-    parser.add_argument('angle', type=float, help='Угол броска (в градусах)')
-
-    return parser.parse_args()
+# def parse_arguments():
+#     parser = argparse.ArgumentParser(description='Симуляция движения тела, брошенного под углом.')
+#     parser.add_argument('height', type=float, help='Высота, с которой брошено тело (м)')
+#     parser.add_argument('speed', type=float, help='Начальная скорость (м/с)')
+#     parser.add_argument('angle', type=float, help='Угол броска (в градусах)')
+#
+#     return parser.parse_args()
 
 def get_user_input():
     height = float(input("Введите высоту, с которой брошено тело (м): "))
@@ -27,7 +27,7 @@ def calculate_trajectory(h, v0, angle):
     vy_start = v0 * np.sin(angle)
 
     t_flight = (vy_start + np.sqrt(vy_start**2 + 2 * g * h)) / g
-    t = np.linspace(0, t_flight, num=500)
+    t = np.linspace(0, t_flight, num=10**6)
 
     x = vx_start * t
     y = h + vy_start * t - 0.5 * g * t**2
